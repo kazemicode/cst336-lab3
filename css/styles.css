@@ -1,0 +1,22 @@
+html,body {
+  height: 100%;
+}
+
+body {
+  background: #000000;
+  background: linear-gradient(to right, #ffffff, #8fdaff);
+}
+
+#page-content {
+  flex: 1 0 auto; /* make it sticky */
+  padding-bottom: 20px;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+#greets {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 112px !important;
+}
