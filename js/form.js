@@ -22,8 +22,7 @@
         }
         else{
           // invalid zip
-            $("#zipStatus").html("Invalid zip.");
-            $("#zipStatus").css("color", "red");
+            $("#zipStatus").html("<span class='alert alert-danger' role='alert'>Invalid zip.</span>");
             zipFound = false;
         }    
     }
@@ -59,13 +58,12 @@
           usernameAvailable = result.available;
           if(usernameAvailable){
             // username is available
-            $("#usernameStatus").html("Username available.");
-            $("#usernameStatus").css("color", "green");
+            $("#usernameStatus").html("<span class='alert alert-success' role='alert'>Username available.<span>");           
           }
           else{
             // username is already taken
-            $("#usernameStatus").html("Username already taken.");
-            $("#usernameStatus").css("color", "red");
+            $("#usernameStatus").html("<span class='alert alert-danger' role='alert'>Username already taken.</span>");
+           
             
           }
         }
@@ -76,13 +74,13 @@ $("#passwordAgain").on("change", function() {
       if($("#password").val() != $("#passwordAgain").val()){
           isValid = false;
         // console.log("passwords don't match");
-          $("#passwordAgainStatus").html("Passwords do not match.");
-          $("#passwordAgainStatus").css("color", "red");
+          $("#passwordAgainStatus").html("<span class='alert alert-danger' role='alert'>Passwords do not match.</span>");
+      }else{
+         $("#passwordAgainStatus").html("<span class='alert alert-success' role='alert'>Password OK.</span>");
        }
     }); // username 
     
     $("#signupForm").on("submit", function(event){
-      console.log("hi");
       if(!isFormValid())
         {
           event.preventDefault();
@@ -123,20 +121,17 @@ $("#passwordAgain").on("change", function() {
         {
          // console.log("username required");
           isValid = false;
-          $("#usernameStatus").html("Username is required.");
-          $("#usernameStatus").css("color", "red");
+          $("#usernameStatus").html("<span class='alert alert-danger' role='alert'>Username is required.</span>");
         }
        if($("#password").val() != $("#passwordAgain").val()){ // passwords must match
           isValid = false;
         // console.log("passwords don't match");
-          $("#passwordAgainStatus").html("Passwords do not match.");
-          $("#passwordAgainStatus").css("color", "red");
+          $("#passwordAgainStatus").html("<span class='alert alert-danger' role='alert'>Passwords do not match.</span>");
        }
        if($("#password").val().length < 6) // username must be 6 chars or more
         {
           isValid = false;
-          $("#passwordAgainStatus").html("Password must be at least 6 characters.");
-          $("#passwordAgainStatus").css("color", "red");
+          $("#passwordAgainStatus").html("<span class='alert alert-danger' role='alert'>Password must be at least 6 characters.</span>");
         }
       return isValid;
     }
